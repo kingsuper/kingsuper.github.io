@@ -18,42 +18,50 @@ show tables; //显示数据库表
 
 返回不同的值，查询指定DISTINCT关键字，则返回的行，只显示不同的内容。需要注意，该关键字必须直接放在列名的前面。示例：
 
-<pre class="prism-highlight"><code class="language-null">SELECT DISTINCT vend_id FROM products;
-</code></pre>
+```
+SELECT DISTINCT vend_id FROM products;
+```
 
 <h2>3. LIMIT</h2>
 
 只返回指定行的记录，也可以分页返回。例如 LIMIT 5显示5行，而LIMIT 5，5显示为从第五行开始的五行。示例：
 
-<pre><code class="language-null">SELECT prod_name FROM products LIMIT 5,5
-</code></pre>
+```
+SELECT prod_name FROM products LIMIT 5,5
+```
 
 <h2>4. 排序</h2>
 
-<pre ><code class="language-null">ORDER BY column //排序按照column
+```
+ORDER BY column //排序按照column
 ORDER BY column DESC //降序排列，系统默认为升序排列，升序关键词为ASC
-</code></pre>
+```
 
 <h2>5.&#95;通配符</h2>
 
 下划线通配符只匹配单个字符，%通配符匹配多个字符
 
-<pre ><code class="language-null">SELECT * FROM products WHERE prod_name LIKE '_ ton anvil';
+```
+SELECT * FROM products WHERE prod_name LIKE '_ ton anvil';
 仅匹配1 ton anvil 2 ton anvil，不匹配.5 ton anvil
-</code></pre>
+```
 
 <h2>6. 匹配正则表达式REGEXP</h2>
 
 和Like一样使用使用，只不过REGEXP后面跟的是正则表达式
+
+```
     SELECT * FROM products WHERE prod_name REGEXP '[1-5] Ton' 返回所有prod_name中包含1-5 Ton的记录
+```
 
 <h2>7.空值检查 IS NULL</h2>
 
 主要用来判断某列是否为空：
 
-<pre ><code class="language-null">SELECT prod_name FROM products WHERE prod_price IS　NULL;
+```
+SELECT prod_name FROM products WHERE prod_price IS　NULL;
 查询产品价格不为空的所有产品。
-</code></pre>
+```
 
 <h2>8.GROUP BY 分组</h2>
 
@@ -67,13 +75,13 @@ ORDER BY column DESC //降序排列，系统默认为升序排列，升序关键
 
 使用方法和WHERE相同，只不过是用来过滤分组。
 
-<pre ><code class="language-null">SELECT vend_id,count(*) FROM products
-WHERE prod_price &gt;= 10 
+```
 GROUP BY vend_id HAVING count(*) &gt;=2 ;
 首先过滤价格大于10的记录，然后分组，然后过滤掉分组后个数大于等于2的产品。
-</code></pre>
+```
 
 <h2>10. 查询语句SELECT顺序</h2>
 
-<pre><code class="language-null"> SELECT－FROM -WHERE-GROUP BY-HAVING-ORDER BY-LIMIT
-</code></pre>
+```
+SELECT－FROM -WHERE-GROUP BY-HAVING-ORDER BY-LIMIT
+```
