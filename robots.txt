@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 Disallow: /bin/
-Sitemap: http://kingsuper.github.io/sitemap.xml
+Sitemap: http://www.wangchao.tech/sitemap.xml
