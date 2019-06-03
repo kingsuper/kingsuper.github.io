@@ -8,10 +8,11 @@ PS: 学习主要参考来自《mysql必知必会》，如有需要，请购买�
 
 <h2>1.操作数据库</h2>
 
-<code class="language-null">use database_name; //连接数据库
+'''
+use database_name; //连接数据库
 show databases; //显示数据库列表
 show tables; //显示数据库表
-</code>
+'''
 
 <h2>2. DISTINCT</h2>
 
