@@ -3,7 +3,7 @@ title: 王超的个人博客
 email: neal.wang@foxmail.com
 description: > #王超的个人博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://kingsuper.github.io/index.html" # the base hostname & protocol for your site
+url: "http://www.wangchao.tech/index.html" # the base hostname & protocol for your site
 
 # Paginate（分页）
 #gems: [jekyll-paginate]
@@ -31,7 +31,7 @@ favicon: /assets/image/favicon.ico
 author:
   name: Chao Wang
   email: neal.wang@foxmail.com
-  link: http://kingsuper.github.io/
+  link: http://www.wangchao.tech/
   github: https://github.com/kingsuper
   github_username: kingsuper
 
