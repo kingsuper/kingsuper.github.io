@@ -24,5 +24,5 @@ git config --global http.postBuffer 524288000
 ubuntu下git升级方法如下：
 add-apt-repository ppa:git-core/ppaapt-get updateapt-get dist-upgrade
 
-## 4. git clone 出现fatal: unable to access 'https://github.com/kingsuper/kingsuper.github.io.git/': SSL certificate problem: unable to get local issuer certificate
+## 4. git clone 出现SSL certificate problem: unable to get local issuer certificate
 >解决方法：git config --global http.sslVerify false
