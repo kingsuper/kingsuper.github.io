@@ -5,13 +5,6 @@ description: git经验贴
 category: 技术
 ---
 
----
-layout: post
-title: git经验贴
-description: git经验贴
-category: 技术
----
-
 ## 1.在Ubuntu下使用$ git clone时出现server certificate verification failed. CAfile:/etc/ssl/certs/ca-certificates.crt CRLfile: none
 
 > 解决方法：在执行$ git clone 之前，在终端输入：
