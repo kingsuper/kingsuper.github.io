@@ -51,7 +51,8 @@ SELECT * FROM products WHERE prod_name LIKE '_ ton anvil';
 和Like一样使用使用，只不过REGEXP后面跟的是正则表达式
 
 ```sql
-    SELECT * FROM products WHERE prod_name REGEXP '[1-5] Ton' 返回所有prod_name中包含1-5 Ton的记录
+    SELECT * FROM products WHERE prod_name REGEXP '[1-5] Ton' 
+    返回所有prod_name中包含1-5 Ton的记录
 ```
 
 ## 7.空值检查 IS NULL
