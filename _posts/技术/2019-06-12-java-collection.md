@@ -22,3 +22,10 @@ ArrayList和LinkedList都是List类型，从输出可以看出，它们都按照
 HashSet、TreeSet、LinkedHashSet都是Set类型，每个相同的项只保存一次。HashSet是最快的获取元素的方式，因此存储的顺序并无实际意义。如果存储顺序很重要，可以使用TreeSet，它按照比较结果的升序保存对象。LinkedHashSet按照被添加的顺序保存对象。
 
 Map不用考虑尺寸，它会自动的调整尺寸。与HashSet一样，HashMap也提供了最快的查找技术，也没有按照任何明显的顺序来保存元素。TreeMap按照比较结果的升序保存键，而LinkedHashMap按照插入顺序保存键，同时还保留了HashMap的查询速度。
+
+## 11.5 List
+
+有两种类型的List:
+
+* 基本的ArrayList，长于随机访问元素，但是在List的中间插入和移除元素时较慢。
+* LinkedList，插入和删除的代价较低，提供了优化的顺序访问。但是在随机访问方面相对较慢，但是特性集比ArrayList更大。
