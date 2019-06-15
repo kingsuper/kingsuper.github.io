@@ -29,3 +29,23 @@ Map不用考虑尺寸，它会自动的调整尺寸。与HashSet一样，HashMap
 
 * 基本的ArrayList，长于随机访问元素，但是在List的中间插入和移除元素时较慢。
 * LinkedList，插入和删除的代价较低，提供了优化的顺序访问。但是在随机访问方面相对较慢，但是特性集比ArrayList更大。
+
+## 11.6 迭代器
+
+* 迭代器设计模式
+
+Java的Iterator只能单向移动，用来：
+
+1. 使用iterator()的要求返回一个Iterator。
+2. 使用next()获得序列中的下一个元素。
+3. 使用hasNext检查序列中是否还有元素。
+4. 使用remove将迭代器新返回的元素删除。
+
+### 16.6.1 ListIterator
+
+ListIterator是Iterator的子类型，但是更强大，只能用于List的访问，但是支持双向移动。还可以产生指向当前位置的前一个和后一个元素的索引。还可以使用set()方法替换它访问过的最后一个元素。
+可以通过listIterator获取指向开始处的ListIterator，也支持通过listIterator(n)创建一个一开始就指向n的ListIterator.
+
+## 11.8 栈
+
+栈通常是指后进先出。LinkedList具有能够直接实现栈所有个功能的方法。可以进行封装，尽量不要使用java.util.Stack中的Stack.
