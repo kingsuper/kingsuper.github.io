@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Go 语言学习圣经学习笔记-入门
+title: Go 语言圣经学习笔记-入门
 category: 技术
 ---
 ## 1.入门
