@@ -176,7 +176,7 @@ io/ioutil包的ReadFile函数，一次将文件全部读取到内存中，然后
 
 ### 1.4 GIF 动画
 
-import多个路径的package时，通常在使用时只需要最后那个单子表示包就可以了。
+import多个路径的package时，通常在使用时只需要最后那个单词表示包就可以了。
 常量是指程序编译后运行时始终不会变化的。常量声明和变量声明一般都会出现在包级别，所以整个包中是可以共享的，如果定义在函数内部，那么只能在函数体内使用。
 struct是一组值或者叫字段的集合，不同类型的集合在一个struct可以让我们以一个统一的单元处理。实例化时，会按照传入的参数设置对应的值，其他值为默认值。可以使用.来进行访问。
 
@@ -189,7 +189,7 @@ os.Exit函数来终止进程，并返回一个status错误码。
 ## 1.6 并发获取多个URL
 
 goroutine是一种函数的并发执行方式，而channel是用来在goroutine之间进行参数传递。main函数本身也运行在一个goroutine中，而go function则表示创建一个新的goroutine，并在这个新的goroutine中执行这个函数。
-当一个goroutine尝试在channel上做send或者receive操作时，这个goroutine会阻塞在调用出，直到另一个写入或者接收值。
+当一个goroutine尝试在channel上做send或者receive操作时，这个goroutine会阻塞在调用处，直到另一个写入或者接收值。
 
 ## 1.7 Web服务
 
@@ -198,6 +198,7 @@ http.HandleFunc将路径和处理函数关联起来。http.Request是Http请求�
 服务器每次接收请求处理，都会单独起一个goroutine，这样就可以并发处理请求。但是如果有多个请求更新一个变量，就会引发竞态条件，所以使用mu.Lock和Unlock将行为包在中间。
 
 Go允许使用一个简单的语句结果的变量声明出现在if语句的前面，这一点对于错误处理很有用处。
+
 ### 1.8 本章要点
 
 #### 控制流
