@@ -94,3 +94,34 @@ func Count(list []string){ return m[k(list)] }
 
 map的值类型本身可以是复合数据类型，例如是map或slice。
 
+## 4.4 结构体
+
+结构体是将零个或者多个任意类型的命名变量组合在一起的聚合数据类型。每个变量都叫做结构体的成员。
+
+```go
+type Employee struct{
+    ID int
+    Name string
+    Address string
+}
+var dilbert Employee
+```
+
+可以通过dilbert.Name += "test"来给成员赋值，也可以通过指针来访问它:
+
+```go
+name := &dilbert.Name
+*name = "Test " + *name
+```
+
+点号也可以使用在结构体指针上：
+
+```go
+var employee *Employee = &dilbert
+employee.Name += "test"
+```
+
+结构体通常一行写一个，但是相同类型的连续成员变量可以写在一行，成员的变量顺序对于结构体的同一性很重要。
+如果一个结构体的成员变量是首字母大小的，那么这个变量是可导出的。
+
+命名结构体类型S不可以定义一个相同类型的成员变量，也就是一个聚合类型不可以包含自己。但是可以定义一个S的指针类型，实现递归数据结构，例如链表和树。
