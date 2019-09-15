@@ -90,5 +90,7 @@ func Add(list []string){ m[k(list)]++ }
 func Count(list []string){ return m[k(list)] }
 ```
 
-同样的方法适用于任何不可直接比较的键类型，不仅仅局限于slice。
+同样的方法适用于任何不可直接比较的键类型，不仅仅局限于slice。同样，k(x)的类型不一定是字符串类型，任何能够得到想要的比较结果的类型都可以，例如整数、数组或者结构体。
+
+map的值类型本身可以是复合数据类型，例如是map或slice。
 
