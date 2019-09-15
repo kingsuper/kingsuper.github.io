@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Go 语言圣经学习笔记-基础数据类型
+title: Go 语言圣经学习笔记-3.基础数据类型
 category: 技术
 ---
 ## 3.1 整型

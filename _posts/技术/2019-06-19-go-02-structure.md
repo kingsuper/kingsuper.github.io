@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Go 语言圣经学习笔记-程序结构
+title: Go 语言圣经学习笔记-2.程序结构
 category: 技术
 ---
 
