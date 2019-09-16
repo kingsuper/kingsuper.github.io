@@ -22,3 +22,29 @@ String对象是不可变的。每一个看起来会修改String值的方法， �
 
 见API文档。当需要改变字符串的内容时，String类的方法都会返回一个新的String对象。如果内容没有变化，通过只是指向元对象的引用。
 
+## 13.5 格式化输出
+
+### 13.5.1 printf()
+
+### 13.5.2 System.out.format()
+
+format和printf等价的，它们只需要一个简单的格式化字符串，加上一串参数。
+
+### 13.5.3 Formatter类
+
+java,所有新的格式化功能都是由java.util.Formatter类处理，负责翻译格式化字符串和数据。当创建Formatter对象时，需要传递一些信息，告诉往哪里输出。
+
+### 13.5.4 格式化说明符
+
+%[argument_index$][flags][width][.precision]conversion
+
+width控制尺寸，Formatter对象通过必要时增加空格，来确保一个域达到某个长度，通过"-"标志来改变对齐的方向。
+precision用来致命最大尺寸，String时，表示打印输出字符的最大数量。应用于浮点数时，表示小数要显示出来的位数。
+
+### 13.5.5 Formatter转换
+
+fomatter可以完成一些类型的转换。特别要注意的是，除了Boolean型，其他类型,主要不是null，转换为boolean的结果永远是true，即使是数字0，转换结果也是true。
+
+### 13.5.6 String.format()
+
+参考了sprintf的方法，生成格式化的String对象。静态方法，接收和formate一样的参数，返回一个String对象。
