@@ -158,3 +158,98 @@ employee.Name += "test"
 
 命名结构体类型S不可以定义一个相同类型的成员变量，也就是一个聚合类型不可以包含自己。但是可以定义一个S的指针类型，实现递归数据结构，例如链表和树。
 
+没有任何成员变量的结构体称为空结构体，写作struct{},它没有长度，也不携带任何信息，但是有时候会有用。
+
+### 4.4.1 结构体字面量
+
+有两种格式的结构体字面量，第一种，按照正确的顺序，为每个成员变量赋值,这会给开发和阅读代码的人造成负担。
+
+```go
+type Point struct{X,Y int}
+p := Point(1,2)
+```
+
+用的最多的是第二种，通过指定部分或者全部成员变量的名称来初始化。
+
+```go
+anim := gif.GIFP{LoopCount: nframe}
+```
+
+如果某个变量没有指定，那么值就是该变量类型的零值。
+结构体类型的值可以作为参数传递给函数或者作为函数的返回值，但是出于效率的考虑，大型 的结构体通常使用结构体指针的方式传递给函数或者从函数返回。
+
+```go
+func Bonus(e *Employee,percent int) int{
+   return e.Salary * percent / 100
+}
+```
+
+这种方式在修改结构体内容时也是有用的，因为go是按值调用，调用函数接受的是实参的一个副本，并不是实参的引用。
+
+### 4.4.2 结构体比较
+
+如果结构体的所有变量是可以比较的，那么这个结构体就是可比较的。比较结构体，会按照顺序比较结构体变量的成员变量。
+
+### 4.4.3 结构体嵌套和匿名成员
+
+Go允许我们定义不带名称的结构体成员，只需要指定类型即可，这种结构体成员称作匿名成员。下面的Circle和Wheel都拥有一个匿名成员，这里称Point被嵌套到Circle中，Circle被嵌套到Wheel中。
+
+```go
+type Circle struct{
+    Point
+    Radius int
+}
+type Wheel struct{
+    Circle
+    Spokes int
+}
+var w Wheel
+w.X = 8 //等价w.Circle.Point.X=8
+w.Radius = 5 //等价w.Circle.Radius = 5
+```
+
+当我们访问最终的变量的时候，可以省略中间的所有的匿名成员。
+但是遗憾的是，结构体字面量并没有快捷的办法来初始化结构体：
+
+```go
+ w = Wheel{8,8,5,20} //编译错误
+ w = Wheel{X:8,Y:8,Radius:5,Spokes:20} //编译错误
+ w = Wheel{Circle{Point{8,8},5},20}
+```
+
+因为匿名成员拥有隐式的名字，所有一个结构体不能出现两个相同类型的你们成员。由于匿名成员的名字是由它们的类型决定的，因此可导出性也是由它们的类型决定的。
+即使匿名成员的结构体是不可导出的(circle和point)，但是仍然可以使用快捷方式：
+
+```go
+w.X = 8
+w.circle.point.X = 8//不允许
+```
+
+以快捷方式访问匿名成员内部变量同样适用于访问匿名成员的内部方法。
+
+## 4.5 JSON
+
+Go对象转为JSON还是从JSON转换为Go对象都很容易。把Go的数据结构转换为JSON成为marshal。 marshal是通过json.Marshal来实现的。
+
+```go
+data,err := json.Marshal(movies)
+if err != nil{
+    log.Fatalf("JSON marshaling failed:%s",err)
+}
+fmt.Printf("%s\n",data)
+```
+
+只有可导出的成员可以转换为JSON字段。字段的转换是通过成员标签定义管理的。
+成员标签定义是结构体成员编译器关联的一些元信息：
+
+```go
+Year   int  `json:"released"`
+Color  bool `json:"color,omitempty"`
+```
+
+成员标签定义可以是任意字符串，但是按照习惯，是由一串空格分开的标签键值对key:"value"组成。omitempty表示如果成员的值是零值或者空，则不输出到JSON。
+
+marshal的逆操作是unmarshal。
+
+## 4.6 文本和HTML模板
+
