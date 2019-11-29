@@ -30,3 +30,12 @@ add-apt-repository ppa:git-core/ppaapt-get updateapt-get dist-upgrade
 ## 4. git clone 出现fatal: unable to access SSL certificate problem: unable to get local issuer certificate
 
 >解决方法：git config --global http.sslVerify false
+
+## 5. 如何从fork库同步远程分支代码
+
+```bash
+$ git remote add upstream 远程库地址
+$ git remote -v  //确认是否增加成功
+$ git fetch upstream  //从远程库同步代码
+$ git merge upstream/SQLite //Merge对应的分支进来
+```
